@@ -1,0 +1,15 @@
+from typing import Iterable
+from transformers.utils.scale_cords import scale_coords
+
+
+def move(x: Iterable, y: Iterable, move_x: int = 0, move_y: int = 0):
+    if len(x) != len(y):
+        raise ValueError('x should be as long as y')
+    
+    x = [x1 + move_x for x1 in x]
+    y = [y1 + move_y for y1 in y]
+
+    x = scale_coords(x)
+    y = scale_coords(y)
+
+    return x, y
