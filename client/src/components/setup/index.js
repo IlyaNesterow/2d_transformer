@@ -1,12 +1,23 @@
 import React from 'react'
+import styled from 'styled-components'
+import SetupForm from './SetupForm'
 
 
 const Setup = () => {
-  return(
-    <div>
+  const handleSetupSubmission = (setup) => {
+    console.log(setup)
+  }
 
-    </div>
+  return(
+    <SetupWrapper>
+      <SetupForm handleSubmission={ handleSetupSubmission }/>
+    </SetupWrapper>
   )
 }
+
+
+const SetupWrapper = styled.div`
+
+`
 
 export default Setup
