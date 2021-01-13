@@ -7,16 +7,16 @@ app = Flask(__name__, static_url_path='',
                   static_folder='client/build',
                   template_folder='client/build')
 
+
 @app.route("/")
-def hello():
-    return render_template("index.html")
+def home(): 
+    return render_template("index.html") 
 
 
 @app.route('/plot', methods=['GET', 'PATCH'])
 def plot_png():
     try:
-        print(request.get_json())
-        fig = create_figure()
+        fig = create_figure(request.json)
         output = BytesIO()
         FigureCanvas(fig).print_png(output)
         return Response(output.getvalue(), mimetype='image/png')

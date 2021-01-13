@@ -1,23 +1,23 @@
-import './App.css';
+import React from 'react'
+import styled from 'styled-components'
+import Router from './components/router'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Wrapper>
+      <h2>2D Transformations</h2>
+      <Router/>
+    </Wrapper>
+  )
 }
 
-export default App;
+const Wrapper = styled.div`
+h2{
+  text-align: center;
+  background-color: #333;
+  padding: 1rem;
+  color: #393;
+}
+`
+
+export default App

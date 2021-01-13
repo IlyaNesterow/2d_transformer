@@ -1,9 +1,8 @@
 from math import cos, sin, radians, floor
-from typing import Iterable
 from transformers.utils.scale_cords import scale_coords
 
 
-def rotate(x: Iterable, y: Iterable, angle: int = 0):
+def rotate(x: list, y: list, angle: int = 0):
     if len(x) != len(y):
         raise ValueError('x should be as long as y')
 
