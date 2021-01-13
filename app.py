@@ -16,12 +16,23 @@ def home():
 @app.route('/plot', methods=['GET', 'PATCH'])
 def plot_png():
     try:
-        fig = create_figure(request.json)
+        if request.method == 'GET':
+            body = {
+                'x': [10, 20, 40],
+                'y': [10, 50, 70],
+                'connect': True, 
+                'scale': {
+                    'scale_x': 5,
+                }
+            }
+        else: 
+            body = request.json
+        fig = create_figure(body)
         output = BytesIO()
         FigureCanvas(fig).print_png(output)
-        return Response(output.getvalue(), mimetype='image/png')
-    except Exception:
-        return jsonify({'warning': 'error occored'}), 500
+        return Response(output.getvalue(), mimetype='image/png'), 201
+    except Exception as ex:
+        return jsonify({'error': ex}), 500
 
 
 if __name__ == '__main__':
