@@ -10,7 +10,10 @@ app = Flask(__name__, static_url_path='',
 
 @app.route("/")
 def home(): 
-    return render_template("index.html") 
+    try:
+        return render_template("index.html") 
+    except Exception:
+        return 'The webpage is temporarily unavailable'
 
 
 @app.route('/plot', methods=['GET', 'PATCH'])
