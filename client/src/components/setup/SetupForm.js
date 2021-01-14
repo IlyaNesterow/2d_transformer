@@ -44,12 +44,14 @@ const SetupForm = ({ handleSubmission }) => {
     const val = e.target.value
     if(val.length > 0)
       setSetup({
-      ...setup,
-      angle: parseInt(val)
+        ...setup,
+        rotate: {
+          angle: parseInt(val)
+        }
       })
     else {
       const _setup = setup
-      delete _setup.angle
+      delete _setup.rotate
       setSetup(_setup)
     }
   }

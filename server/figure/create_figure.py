@@ -7,6 +7,7 @@ from server.figure.draw_plot import draw
 def create_figure(body: dict) -> Figure:
     try:
         x, y = get_coords(body)
+        
         fig = Figure()
         original = body.get('original', None)
         if original: 
