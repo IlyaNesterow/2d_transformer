@@ -1,5 +1,7 @@
 import React, { useState, useRef } from 'react'
 
+import Input from './InputField'
+
 
 const AddCord = ({ onSubmit, setError }) => {
   const [ currentX, setCurrentX ] = useState(null)
@@ -20,38 +22,44 @@ const AddCord = ({ onSubmit, setError }) => {
   }
 
   return(
-    <div id="add-smth">
-      <label>x</label>
-      <input 
-        ref={ x }
-        type="number"
-        onChange={e => {
-          const val = e.target.value
-          if(val.length > 0 && !isNaN(parseInt(val))){
-            setError('')
-            setCurrentX(parseInt(val))
-          } else if(currentX) setCurrentX(null)
-        }}
-      />
-      <label>y</label>
-      <input 
-        ref={ y }
-        type="number"
-        onChange={e => {
-          const val = e.target.value
-          if(val.length > 0 && !isNaN(parseInt(val))){
-            setError('')
-            setCurrentY(parseInt(val))
-          } else if(currentY) setCurrentY(null)
-        }}
-      />
+    <>
+      <div id="add-smth">
+        <Input
+          ref={ x }
+          label="x"
+          onChange={e => {
+            const val = e.target.value
+            if(val.length > 0 && !isNaN(parseInt(val))){
+              setError('')
+              setCurrentX(parseInt(val))
+            } else if(currentX) setCurrentX(null)
+          }}
+          props={{
+            type: 'number'
+          }}
+        />
+        <Input
+          ref={ y }
+          label="y"
+          onChange={e => {
+            const val = e.target.value
+            if(val.length > 0 && !isNaN(parseInt(val))){
+              setError('')
+              setCurrentY(parseInt(val))
+            } else if(currentY) setCurrentY(null)
+          }}
+          props={{
+            type: 'number'
+          }}
+        />
+      </div>
       <button 
         id="add_coord"
-        onClick={handleClick}
+        onClick={ handleClick }
       >
         Add!
       </button>
-    </div>
+    </>
   )
 }
 

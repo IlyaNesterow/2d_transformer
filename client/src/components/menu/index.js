@@ -10,6 +10,9 @@ const Menu = () => {
     }, {
       link: '/about',
       text: 'About'
+    }, {
+      link: '/',
+      text: 'Main'
     }
   ]
   
