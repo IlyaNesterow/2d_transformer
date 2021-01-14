@@ -74,11 +74,11 @@ const SetupForm = ({ handleSubmission }) => {
 
   const onSubmit = (e) => {
     e.preventDefault()
-    if(error.length === 0 && setup.x.length > 2){
+    if(error.length === 0 && setup.x.length > 1){
       handleSubmission(setup)
       formCleanUp()
       setSetup({ x: [], y: [] })
-    }
+    } else if(setup.x.length < 2) setError('You need to specify alteast 2 pairs of x, y coords')
   }
 
   const formCleanUp = () => {
