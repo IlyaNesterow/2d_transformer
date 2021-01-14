@@ -1,6 +1,6 @@
 from matplotlib.figure import Figure
 from server.figure.get_coords import get_coords
-from server.figure.modify_coords import modify_coords
+from server.figure.modify_xy import modify_coords
 from server.figure.draw_plot import draw
 
 
