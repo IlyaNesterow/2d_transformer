@@ -8,6 +8,7 @@ flask = "*"
 numpy = "*"
 matplotlib = "*"
 scikit-image = "*"
+gunicorn = "*"
 
 [dev-packages]
 

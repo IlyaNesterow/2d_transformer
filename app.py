@@ -1,17 +1,24 @@
 from io import BytesIO
 from flask import *
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
-from transformers.create_figure import create_figure
+from werkzeug.exceptions import SecurityError
+from server.figure.create_figure import create_figure
 
 app = Flask(__name__, static_url_path='',
                   static_folder='client/build',
                   template_folder='client/build')
 
 
-@app.route("/")
+@app.route('/')
+@app.route('/setup')
+@app.route('/about')
 def home(): 
     try:
+        if request.method != 'GET':
+            raise SecurityError()
         return render_template("index.html") 
+    except SecurityError:
+        return 'Only get method is allowed for this endpoint'
     except Exception:
         return 'The webpage is temporarily unavailable'
 
@@ -36,7 +43,3 @@ def plot_png():
         return Response(output.getvalue(), mimetype='image/png'), 201
     except Exception as ex:
         return jsonify({'error': ex}), 500
-
-
-if __name__ == '__main__':
-    app.run(host='localhost', port=3000, debug=True)
