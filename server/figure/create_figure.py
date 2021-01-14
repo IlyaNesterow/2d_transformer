@@ -17,6 +17,7 @@ def create_figure(body: dict) -> Figure:
             pos = (1, 1, 1)
         x, y = modify_coords(body, x, y)
         draw(pos, fig, x, y, 'With transformation', 'r')
+        fig.tight_layout()
 
         return fig
     except Exception as ex:
