@@ -46,7 +46,7 @@ const SetupForm = ({ handleSubmission }) => {
       setSetup({
         ...setup,
         rotate: {
-          angle: parseInt(val)
+          angle: parseFloat(val)
         }
       })
     else {
@@ -66,7 +66,7 @@ const SetupForm = ({ handleSubmission }) => {
         ...setup,
         [key]: {
           ...setup[key],
-          [subKey]: parseInt(val)
+          [subKey]: parseFloat(val)
         }
       })
     }

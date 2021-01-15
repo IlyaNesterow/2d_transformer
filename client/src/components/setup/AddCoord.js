@@ -15,6 +15,10 @@ const AddCord = ({ onSubmit, setError }) => {
     if(!currentX || !currentY)
       return setError(`Enter ${!currentX ? 'x' : 'y'} value`)
     onSubmit(currentX, currentY)
+    makeCleanUp()
+  }
+
+  const makeCleanUp = () => {
     x.current.value = ''
     y.current.value = ''
     setCurrentX(null)
@@ -29,9 +33,9 @@ const AddCord = ({ onSubmit, setError }) => {
           label="x"
           onChange={e => {
             const val = e.target.value
-            if(val.length > 0 && !isNaN(parseInt(val))){
+            if(val.length > 0 && !isNaN(parseFloat(val))){
               setError('')
-              setCurrentX(parseInt(val))
+              setCurrentX(parseFloat(val))
             } else if(currentX) setCurrentX(null)
           }}
           props={{
@@ -43,9 +47,9 @@ const AddCord = ({ onSubmit, setError }) => {
           label="y"
           onChange={e => {
             const val = e.target.value
-            if(val.length > 0 && !isNaN(parseInt(val))){
+            if(val.length > 0 && !isNaN(parseFloat(val))){
               setError('')
-              setCurrentY(parseInt(val))
+              setCurrentY(parseFloat(val))
             } else if(currentY) setCurrentY(null)
           }}
           props={{

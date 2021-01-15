@@ -1,7 +1,7 @@
 from server.cords.scale_cords import scale_coords
 
 
-def move(x: list, y: list, move_x: int = 0, move_y: int = 0):
+def move(x: list, y: list, move_x: float = 0, move_y: float = 0):
     if len(x) != len(y):
         raise ValueError('x should be as long as y')
     

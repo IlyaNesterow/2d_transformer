@@ -1,6 +1,6 @@
 
 
-def scale(x: list, y: list, scale_x: int = 1, scale_y: int = 1):
+def scale(x: list, y: list, scale_x: float = 1, scale_y: float = 1):
     if len(x) != len(y):
         raise ValueError('x should be as long as y')
     if scale_x < 0 or scale_y < 0:

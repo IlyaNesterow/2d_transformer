@@ -2,7 +2,7 @@ from math import cos, sin, radians, floor
 from server.cords.scale_cords import scale_coords
 
 
-def rotate(x: list, y: list, angle: int = 0):
+def rotate(x: list, y: list, angle: float = 0):
     if len(x) != len(y):
         raise ValueError('x should be as long as y')
 
