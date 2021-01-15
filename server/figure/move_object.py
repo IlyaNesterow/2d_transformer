@@ -1,4 +1,4 @@
-from server.utils.scale_cords import scale_coords
+from server.cords.scale_cords import scale_coords
 
 
 def move(x: list, y: list, move_x: int = 0, move_y: int = 0):

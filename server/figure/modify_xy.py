@@ -1,7 +1,7 @@
 from server.figure.move_object import move
 from server.figure.scale_object import scale
 from server.figure.rotate_object import rotate
-from server.utils.modify_cords import modify
+from server.cords.modify_cords import modify
 
 
 def modify_coords(body: dict, x: list, y: list) -> list and list:

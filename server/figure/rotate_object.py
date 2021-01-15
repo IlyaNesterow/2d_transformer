@@ -1,5 +1,5 @@
 from math import cos, sin, radians, floor
-from server.utils.scale_cords import scale_coords
+from server.cords.scale_cords import scale_coords
 
 
 def rotate(x: list, y: list, angle: int = 0):
